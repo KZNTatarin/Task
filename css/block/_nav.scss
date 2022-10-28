@@ -1,0 +1,21 @@
+.nav {
+    &__wrapp {
+        padding: 20px 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    & input {
+        padding: 10px;
+        font-size: 20px;
+        border: solid 1px blue;
+    }
+}
+
+.creat-task {
+    display: none;
+}
+
+.creat-task.active {
+    display: flex;
+}

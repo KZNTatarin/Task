@@ -1,0 +1,12 @@
+
+.tasks__wrapp {
+    text-align: center;
+}
+.task {
+    border: solid 1px blue;
+    border-radius: 30px;
+
+    h2, p, button {
+        margin: 10px;
+    }
+}
