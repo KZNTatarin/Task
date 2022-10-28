@@ -11,6 +11,9 @@ const creatTask = () => {
     let task = document.createElement('div');
     task.className = 'task';
 
+    const id = Math.floor(Math.random() * 10000000);
+    task.setAttribute("id", String(id));
+
     let taskChanse = document.createElement('button');
     taskChanse.className = 'btn task__chanse';
     taskChanse.innerHTML = 'Изменить'
