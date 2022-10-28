@@ -17,6 +17,7 @@ const creatTask = () => {
   let taskChanse = document.createElement("button");
   taskChanse.className = "btn task__chanse";
   taskChanse.innerHTML = "Изменить";
+  taskChanse.setAttribute("onClick", `changeTask(${id})`);
 
   let taskDelete = document.createElement("button");
   taskDelete.className = "btn task__delete";
@@ -48,4 +49,39 @@ const deleteTask = (id) => {
     const elementToDelete = document.getElementById(`${id}`);
     wrapper.removeChild(elementToDelete);
   }
+};
+
+const changeTask = (id) => {
+  const element = document.getElementById(`${id}`);
+
+  const title = element.getElementsByTagName("h2")[0];
+  const description = element.getElementsByTagName("p")[0];
+  const button = element.getElementsByTagName("button")[0];
+
+  const inputTitle = document.createElement("input");
+  inputTitle.value = title.textContent;
+
+  const inputDescription = document.createElement("input");
+  inputDescription.value = description.textContent;
+
+  title.parentNode.replaceChild(inputTitle, title);
+  description.parentNode.replaceChild(inputDescription, description);
+
+  button.setAttribute("onClick", `changeValues(${id})`);
+};
+
+const changeValues = (id) => {
+  const element = document.getElementById(`${id}`);
+
+  const inputTitle = element.getElementsByTagName("input")[0];
+  const inputDescription = element.getElementsByTagName("input")[1];
+
+  const titleHTML = document.createElement("h2");
+  titleHTML.innerText = inputTitle.value;
+
+  const descriptionHTML = document.createElement("p");
+  descriptionHTML.innerText = inputDescription.value;
+
+  inputTitle.parentNode.replaceChild(titleHTML, inputTitle);
+  inputDescription.parentNode.replaceChild(descriptionHTML, inputDescription);
 };
